@@ -14,6 +14,8 @@ router.get("/", (req,res)=>{
 //body request
 router.post("/", (req, res) => {
     const data : UserPortRequest = req.body; 
+    console.log(data.password+" "+data.email+" "+data.UID);
+    
     // res.status(201).json({ Text: "Get in index.ts body: "+JSON.stringify(data)});
     let sql = "SELECT * FROM User WHERE email=? AND password=?";
     sql = mysql.format(sql,[

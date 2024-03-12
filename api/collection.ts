@@ -1,7 +1,6 @@
 import express from "express";
 import { conn,queryAsync } from "../dbconnect";
 
-import { UserPortRequest } from "../model/user-get-res";
 import mysql from "mysql";
 import { PicturePortRequest } from "../model/pic-get-res";
 
@@ -72,3 +71,4 @@ router.put("/update", async (req,res)=>{
         });
     })
 })
+

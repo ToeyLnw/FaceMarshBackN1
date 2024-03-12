@@ -4,7 +4,7 @@ import { router as login } from "./api/login"
 import { router as register } from "./api/register";
 import { router as collection } from "./api/collection";
 import { router as upload } from "./api/upload";
-import { router as update} from "./api/update";
+import { router as history} from "./api/History";
 
 import bodyParser = require("body-parser");
 import cors from "cors";
@@ -24,7 +24,7 @@ app.use("/register", register);
 app.use("/collection", collection);
 app.use("/upload", upload);
 app.use("/uploads", express.static("uploads"));
-app.use("/update", update);
+app.use("/history", history);
 
 // app.use("/", (req,res) =>{
 //     res.send("Hello World!!!");
