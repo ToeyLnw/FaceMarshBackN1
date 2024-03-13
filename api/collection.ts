@@ -13,6 +13,13 @@ router.get("/", (req,res)=>{
     })
 });
 
+//เหมือนกันแต่เพิ่ม limit
+router.get("/top", (req,res)=>{
+    conn.query('select * from Picture ORDER BY point DESC LIMIT 10', (err,result, fields)=>{
+        res.json(result);
+    })
+});
+
 router.get("/random", (req,res)=>{
     let sql = 'SELECT * FROM Picture ORDER BY RAND() LIMIT ?';
     sql = mysql.format(sql,[2]) 
@@ -69,6 +76,24 @@ router.put("/update", async (req,res)=>{
         res.status(200).json({
             affected_rows : result.affectedRows
         });
+    })
+})
+
+
+router.get("/show/:pid",(req,res)=>{
+    let pid = +req.params.pid;
+
+    let sql = "SELECT point,date FROM History where PID = ? "
+            +"AND date BETWEEN DATE_SUB(CURDATE(), INTERVAL 6 DAY) AND CURDATE() "
+            +"ORDER BY date";
+
+    sql = mysql.format(sql,[pid])
+    conn.query(sql, (err,result)=>{
+        if(err){
+            res.status(400).json(err)
+        }else{
+            res.status(200).json(result);
+        }
     })
 })
 

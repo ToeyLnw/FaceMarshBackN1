@@ -31,6 +31,22 @@ router.post("/", (req, res) => {
     })
 });
 
+//get user form UID
+router.post("/uid", (req, res) => {
+    const data : UserPortRequest = req.body; 
+    console.log("UID= "+data.UID);
+    
+    let sql = "SELECT * FROM User WHERE UID=?";
+    sql = mysql.format(sql,[data.UID]) 
+    conn.query(sql, (err,result)=>{
+        if(err){
+            res.status(400).json(err)
+        }else{
+            res.status(200).json(result);
+        }
+    })
+});
+
 //query
 router.get("/:id", (req,res)=>{
     let id = +req.params.id;
