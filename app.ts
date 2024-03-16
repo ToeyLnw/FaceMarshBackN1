@@ -4,7 +4,7 @@ import { router as login } from "./api/login"
 import { router as register } from "./api/register";
 import { router as collection } from "./api/collection";
 import { router as upload } from "./api/upload";
-import { router as history} from "./api/History";
+import { router as history} from "./api/history";
 
 import bodyParser = require("body-parser");
 import cors from "cors";

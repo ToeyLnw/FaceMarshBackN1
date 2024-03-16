@@ -93,47 +93,4 @@ router.post("/", (req, res) => {
 
 
 
-// public async updatePoint(id : any, point : number){
-//   const url = this.constants.API_ENDPOINT + 'collection/update';
-//   const response = await lastValueFrom(
-//       this.http.put(url, {
-//           PID : id,
-//           point : point
-//       })
-//   );
-//   return response as PictureGetResponse;
-// }
 
-// router.put("/update", async (req,res)=>{
-//     let data : PicturePortRequest = req.body;
-//     // res.status(201).json({ Text: "Get in index.ts body: "+JSON.stringify(data)});
-//     //ข้อมูลต้นฉบับ
-//     let sql = "SELECT * FROM Picture WHERE PID = ?";
-//     sql = mysql.format(sql, [data.PID]);
-//     const result = await queryAsync(sql);
-//     const jsonStr = JSON.stringify(result);
-//     const jsonObj = JSON.parse(jsonStr);
-//     const PicOri : PicturePortRequest = jsonObj[0];
-
-//     //merge data
-//     const updatePic = {...PicOri, ...data}
-
-//     //update data
-//     sql = "update  `Picture` set `madeBy`=?, `fname`=?, `lname`=?, `image`=?, `description`=?, `category`=?, `point`=? where `PID`=?";
-//     sql = mysql.format(sql,[
-//         updatePic.madeBy,
-//         updatePic.fname,
-//         updatePic.lname,
-//         updatePic.image,
-//         updatePic.description,
-//         updatePic.category,
-//         updatePic.point,
-//         updatePic.PID
-//     ]);
-//     conn.query(sql, (err,result)=>{
-//         if(err) throw err;
-//         res.status(200).json({
-//             affected_rows : result.affectedRows
-//         });
-//     })
-// })
