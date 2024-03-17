@@ -45,7 +45,7 @@ router.post("/", (req, res) => {
   const data: PointPortRequest = req.body;
 
   // let sql = "SELECT COUNT(*) AS count FROM History where PID = ? AND date = DATE_SUB(CURDATE(), INTERVAL 3 DAY) ";
-  let sql = "SELECT COUNT(*) AS count FROM History where PID = ? AND date = CURRENT_TIMESTAMP";
+  let sql = "SELECT COUNT(*) AS count FROM History where PID = ? AND date = SELECT DATE_FORMAT(NOW(), '%Y-%m-%d') ";
 
   // let sql ="SELECT date FROM History"
   sql = mysql.format(sql, [data.PID]);
